@@ -10,9 +10,10 @@ RUN npm ci || (echo "Lockfile out of sync, running npm install" && npm install)
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# media holds runtime uploads (mounted as a volume in production); make sure
-# the directory exists so the runner stage copy always succeeds.
-RUN mkdir -p media
+# media holds runtime uploads (mounted as a volume in production) and public
+# holds static assets; ensure both dirs exist so the runner stage copies never
+# hard-fail when the repo doesn't ship them.
+RUN mkdir -p media public
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
