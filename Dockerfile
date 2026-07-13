@@ -3,11 +3,16 @@ WORKDIR /app
 
 FROM base AS deps
 COPY package.json package-lock.json* ./
-RUN npm ci
+# Prefer a reproducible install; fall back to npm install if the lockfile
+# is out of sync so deployments never hard-fail on lockfile drift.
+RUN npm ci || (echo "Lockfile out of sync, running npm install" && npm install)
 
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# media holds runtime uploads (mounted as a volume in production); make sure
+# the directory exists so the runner stage copy always succeeds.
+RUN mkdir -p media
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
@@ -22,6 +27,8 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/media ./media
+
+RUN chown -R nextjs:nodejs /app/media
 
 USER nextjs
 EXPOSE 3000
