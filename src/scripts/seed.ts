@@ -1,12 +1,9 @@
 import 'dotenv/config'
 
 import config from '@payload-config'
-import type { CollectionSlug } from 'payload'
 import { getPayload } from 'payload'
 
 import { seedData } from '../content/seed/data'
-
-const CATEGORY_COLLECTION = 'certification-categories' as CollectionSlug
 
 async function seed() {
   const payload = await getPayload({ config })
@@ -72,24 +69,24 @@ async function seed() {
 
   for (const name of defaultCategories) {
     const existing = await payload.find({
-      collection: CATEGORY_COLLECTION,
+      collection: 'certification-categories' as never,
       where: { name: { equals: name } },
       limit: 1,
     })
     if (existing.totalDocs === 0) {
       await payload.create({
-        collection: CATEGORY_COLLECTION,
-        data: { name },
+        collection: 'certification-categories' as never,
+        data: { name } as never,
       })
     }
   }
 
   const categories = await payload.find({
-    collection: CATEGORY_COLLECTION,
+    collection: 'certification-categories' as never,
     limit: 50,
   })
   const byName = Object.fromEntries(
-    categories.docs.map((c) => [c.name, c.id]),
+    (categories.docs as Array<{ name?: string; id: number }>).map((c) => [c.name, c.id]),
   ) as Record<string, number>
 
   const existingCerts = await payload.find({ collection: 'certifications', limit: 1 })
