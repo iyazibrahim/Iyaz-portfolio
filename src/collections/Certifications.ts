@@ -14,13 +14,13 @@ export const Certifications: CollectionConfig = {
     },
     {
       name: 'category',
-      type: 'select',
+      type: 'relationship',
+      relationTo: 'certification-categories',
       required: true,
-      options: [
-        { label: 'Networking', value: 'networking' },
-        { label: 'Cybersecurity', value: 'cybersecurity' },
-        { label: 'AV and Technical', value: 'av' },
-      ],
+      admin: {
+        description:
+          'Pick an existing category, or click "Add New" to create one — new categories stay in the dropdown for next time.',
+      },
     },
     {
       name: 'badgeImage',

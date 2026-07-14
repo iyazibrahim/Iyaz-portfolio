@@ -7,7 +7,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeader } from '@/components/SectionHeader'
 
-const categoryLabels: Record<string, string> = {
+// Legacy slug fallback for any pre-migration values that were stored as slugs.
+const legacyCategoryLabels: Record<string, string> = {
   networking: 'Networking',
   cybersecurity: 'Cybersecurity',
   av: 'AV and Technical',
@@ -20,12 +21,23 @@ type MediaRef = {
   filename?: string | null
 }
 
+type CategoryRef = {
+  name?: string | null
+}
+
 type Certification = {
   id: string
   title: string
-  category: string
+  category?: CategoryRef | number | string | null
   badgeImage?: MediaRef | number | null
   certificateFile?: MediaRef | number | null
+}
+
+function getCategoryLabel(category: Certification['category']): string {
+  if (!category) return 'Uncategorized'
+  if (typeof category === 'object') return category.name || 'Uncategorized'
+  // Fallback for a raw slug/id left over from older data.
+  return legacyCategoryLabels[category] || String(category)
 }
 
 function getMedia(media: MediaRef | number | null | undefined): MediaRef | null {
@@ -223,7 +235,7 @@ export function CertificationCarousel({ certifications }: { certifications: Cert
                     )}
                     <div className="flex flex-1 flex-col p-6">
                       <p className="eyebrow mb-3 text-accent">
-                        {categoryLabels[cert.category] || cert.category}
+                        {getCategoryLabel(cert.category)}
                       </p>
                       <h3 className="text-lg font-medium leading-snug">{cert.title}</h3>
                       {pdfUrl ? (

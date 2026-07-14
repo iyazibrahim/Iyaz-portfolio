@@ -37,7 +37,8 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
     { slug: 'experience' as const, data: seedData.experience },
     { slug: 'projects' as const, data: seedData.projects },
     { slug: 'education' as const, data: seedData.education },
-    { slug: 'certifications' as const, data: seedData.certifications },
+    // Certifications are seeded in 20260714_030552_cert_category_relationship
+    // after categories exist (category is now a relationship, not an enum).
   ]
 
   for (const collection of collections) {

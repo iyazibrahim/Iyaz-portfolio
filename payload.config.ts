@@ -6,6 +6,7 @@ import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
 import { Capabilities } from './src/collections/Capabilities'
+import { CertificationCategories } from './src/collections/CertificationCategories'
 import { Certifications } from './src/collections/Certifications'
 import { ContactSubmissions } from './src/collections/ContactSubmissions'
 import { Education } from './src/collections/Education'
@@ -37,6 +38,7 @@ export default buildConfig({
     Posts,
     Education,
     Certifications,
+    CertificationCategories,
     Capabilities,
     ContactSubmissions,
   ],
