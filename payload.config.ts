@@ -16,6 +16,7 @@ import { Posts } from './src/collections/Posts'
 import { Projects } from './src/collections/Projects'
 import { Users } from './src/collections/Users'
 import { SiteSettings } from './src/globals/SiteSettings'
+import { migrations } from './src/migrations'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -49,6 +50,11 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    migrationDir: path.resolve(dirname, 'src/migrations'),
+    // In production (NODE_ENV=production) Payload does not auto-create tables.
+    // Passing prodMigrations makes the adapter run these migrations on boot so
+    // the schema is created/updated automatically on every deploy.
+    prodMigrations: migrations,
   }),
   sharp,
 })
