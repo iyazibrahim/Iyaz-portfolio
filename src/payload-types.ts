@@ -75,6 +75,7 @@ export interface Config {
     posts: Post;
     education: Education;
     certifications: Certification;
+    'certification-categories': CertificationCategory;
     capabilities: Capability;
     'contact-submissions': ContactSubmission;
     'payload-kv': PayloadKv;
@@ -92,6 +93,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     education: EducationSelect<false> | EducationSelect<true>;
     certifications: CertificationsSelect<false> | CertificationsSelect<true>;
+    'certification-categories': CertificationCategoriesSelect<false> | CertificationCategoriesSelect<true>;
     capabilities: CapabilitiesSelect<false> | CapabilitiesSelect<true>;
     'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -331,7 +333,10 @@ export interface Education {
 export interface Certification {
   id: number;
   title: string;
-  category: 'networking' | 'cybersecurity' | 'av';
+  /**
+   * Pick an existing category, or click "Add New" to create one — new categories stay in the dropdown for next time.
+   */
+  category: number | CertificationCategory;
   /**
    * Certificate badge or logo (PNG, JPG, WebP).
    */
@@ -341,6 +346,18 @@ export interface Certification {
    */
   certificateFile?: (number | null) | Media;
   sort: number;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Reusable categories for certifications. Add one here (or via "Add New" on a certification) and it stays available in the dropdown.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "certification-categories".
+ */
+export interface CertificationCategory {
+  id: number;
+  name: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -428,6 +445,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'certifications';
         value: number | Certification;
+      } | null)
+    | ({
+        relationTo: 'certification-categories';
+        value: number | CertificationCategory;
       } | null)
     | ({
         relationTo: 'capabilities';
@@ -643,6 +664,15 @@ export interface CertificationsSelect<T extends boolean = true> {
   badgeImage?: T;
   certificateFile?: T;
   sort?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "certification-categories_select".
+ */
+export interface CertificationCategoriesSelect<T extends boolean = true> {
+  name?: T;
   updatedAt?: T;
   createdAt?: T;
 }

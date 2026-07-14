@@ -1,9 +1,12 @@
 import 'dotenv/config'
 
 import config from '@payload-config'
+import type { CollectionSlug } from 'payload'
 import { getPayload } from 'payload'
 
 import { seedData } from '../content/seed/data'
+
+const CATEGORY_COLLECTION = 'certification-categories' as CollectionSlug
 
 async function seed() {
   const payload = await getPayload({ config })
@@ -69,20 +72,20 @@ async function seed() {
 
   for (const name of defaultCategories) {
     const existing = await payload.find({
-      collection: 'certification-categories',
+      collection: CATEGORY_COLLECTION,
       where: { name: { equals: name } },
       limit: 1,
     })
     if (existing.totalDocs === 0) {
       await payload.create({
-        collection: 'certification-categories',
+        collection: CATEGORY_COLLECTION,
         data: { name },
       })
     }
   }
 
   const categories = await payload.find({
-    collection: 'certification-categories',
+    collection: CATEGORY_COLLECTION,
     limit: 50,
   })
   const byName = Object.fromEntries(

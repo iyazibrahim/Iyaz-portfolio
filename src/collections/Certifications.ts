@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, CollectionSlug } from 'payload'
 
 export const Certifications: CollectionConfig = {
   slug: 'certifications',
@@ -15,7 +15,7 @@ export const Certifications: CollectionConfig = {
     {
       name: 'category',
       type: 'relationship',
-      relationTo: 'certification-categories',
+      relationTo: 'certification-categories' as CollectionSlug,
       required: true,
       admin: {
         description:

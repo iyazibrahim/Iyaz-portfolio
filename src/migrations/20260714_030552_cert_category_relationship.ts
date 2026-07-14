@@ -118,12 +118,12 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
 
   if (existingCerts.totalDocs === 0) {
     const categories = await payload.find({
-      collection: 'certification-categories',
+      collection: 'certification-categories' as never,
       limit: 50,
       req,
     })
     const byName = Object.fromEntries(
-      categories.docs.map((c) => [c.name, c.id]),
+      categories.docs.map((c: { name?: string; id: number }) => [c.name, c.id]),
     ) as Record<string, number>
 
     const slugToName: Record<string, string> = {
