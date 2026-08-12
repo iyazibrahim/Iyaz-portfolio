@@ -51,8 +51,8 @@ export function ImpactMetrics({ metrics }: { metrics: Metric[] }) {
       <div className="section-shell">
         <Reveal>
           <SectionHeader
-            eyebrow="By the numbers"
-            title="A few things I've delivered"
+            eyebrow="Impact"
+            title="By the numbers"
             id="impact-heading"
           />
         </Reveal>

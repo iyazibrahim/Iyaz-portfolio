@@ -17,12 +17,12 @@ export function InfrastructureDelivered({ projects }: InfrastructureDeliveredPro
       <div className="section-shell">
         <Reveal>
           <SectionHeader
-            eyebrow="Delivery"
-            title="Infrastructure I've delivered"
+            eyebrow="Infrastructure"
+            title="On the ground"
             id="delivered-heading"
           />
           <p className="lead apple-narrow -mt-6 mb-12 text-center">
-            Hands-on work across operations, migrations, and monitoring
+            Multi-site ops, migrations, and monitoring
           </p>
         </Reveal>
 

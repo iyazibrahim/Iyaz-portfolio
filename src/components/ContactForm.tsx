@@ -52,7 +52,7 @@ export function ContactForm({ email, linkedin, github, location, resumeUrl }: Co
         <Reveal>
           <SectionHeader
             eyebrow="Contact"
-            title="Want to talk? Say hello."
+            title="Get in touch"
             id="contact-heading"
           />
         </Reveal>

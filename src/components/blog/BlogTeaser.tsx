@@ -17,7 +17,7 @@ export function BlogTeaser({ posts }: BlogTeaserProps) {
       <div className="section-shell">
         <Reveal>
           <div className="mb-10 flex flex-col items-center gap-4 text-center md:mb-14">
-            <SectionHeader eyebrow="Writing" title="Notes from the field" id="blog-teaser-heading" />
+            <SectionHeader eyebrow="Writing" title="Writing" id="blog-teaser-heading" />
             <Link href="/blog" className="btn-secondary -mt-6">
               View all posts
             </Link>

@@ -16,7 +16,7 @@ export function EducationSection({ education }: { education: EducationItem[] }) 
         <Reveal>
           <SectionHeader
             eyebrow="Education"
-            title="Where I studied"
+            title="Education"
             id="education-heading"
           />
         </Reveal>

@@ -100,16 +100,16 @@ export default async function HomePage() {
           exploring={currentlyExploring}
           locations={locations}
         />
+        <Philosophy principles={(settings.principles || []) as never} />
+        <ExperienceTimeline experience={data.experience as never} />
+        <InfrastructureDelivered projects={deliveryProjects} />
+        <BuildPortfolio projects={buildProjects} />
         <ImpactMetrics metrics={data.metrics as never} />
         <CapabilityMap capabilities={data.capabilities as never} />
-        <ExperienceTimeline experience={data.experience as never} />
-        <BuildPortfolio projects={buildProjects} />
-        <InfrastructureDelivered projects={deliveryProjects} />
-        <BlogTeaser posts={latestPosts} />
+        <TechnicalStack categories={(settings.stackCategories || []) as never} />
         <CertificationCarousel certifications={data.certifications as never} />
         <EducationSection education={data.education as never} />
-        <TechnicalStack categories={(settings.stackCategories || []) as never} />
-        <Philosophy principles={(settings.principles || []) as never} />
+        <BlogTeaser posts={latestPosts} />
         <ContactForm
           email={settings.email}
           linkedin={settings.linkedin}

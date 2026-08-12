@@ -38,18 +38,18 @@ async function syncContent() {
   }
   console.log('Capabilities synced.')
 
-  const experience = await payload.find({
-    collection: 'experience',
-    where: { company: { equals: 'Digital Penang' } },
-    limit: 1,
-  })
-  if (experience.docs[0]) {
+  const experienceEntries = await payload.find({ collection: 'experience', limit: 20 })
+  for (const entry of experienceEntries.docs) {
+    const updated = seedData.experience.find(
+      (item) => item.company === entry.company && item.title === entry.title,
+    )
+    if (!updated) continue
     await payload.update({
       collection: 'experience',
-      id: experience.docs[0].id,
-      data: seedData.experience[0] as never,
+      id: entry.id,
+      data: updated as never,
     })
-    console.log('Digital Penang experience synced.')
+    console.log(`Experience synced: ${entry.company}`)
   }
 
   for (const project of seedData.projects) {

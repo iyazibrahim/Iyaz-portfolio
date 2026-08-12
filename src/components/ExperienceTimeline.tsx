@@ -19,12 +19,9 @@ export function ExperienceTimeline({ experience }: { experience: ExperienceItem[
         <Reveal>
           <SectionHeader
             eyebrow="Experience"
-            title="Where I've worked"
+            title="Experience"
             id="experience-heading"
           />
-          <p className="lead apple-narrow -mt-6 mb-12 text-center">
-            The roles that shaped how I build
-          </p>
         </Reveal>
 
         <div className="mx-auto max-w-3xl space-y-6">

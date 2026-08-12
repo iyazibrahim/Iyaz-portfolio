@@ -13,9 +13,6 @@ export function Philosophy({ principles }: { principles: Principle[] }) {
       <div className="section-shell">
         <Reveal>
           <SectionHeader eyebrow="Philosophy" title="How I work" id="philosophy-heading" />
-          <p className="lead apple-narrow -mt-6 mb-12 text-center">
-            A few principles I stick to
-          </p>
         </Reveal>
 
         <div className="mx-auto grid max-w-4xl gap-4 md:grid-cols-3">

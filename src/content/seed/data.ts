@@ -1,33 +1,27 @@
 export const seedData = {
   siteSettings: {
     name: 'Iyaz Ibrahim',
-    roleLine: 'System Engineer | Infrastructure · Network · Cloud · DevOps',
-    tagline:
-      "I'm a system engineer who keeps networks, ICT, and internal systems stable and secure across our main office and four digital library sites — and I also build and deploy the platforms behind them.",
+    roleLine: 'System Engineer — infrastructure, networks, and the platforms behind them',
+    tagline: 'I keep five Penang sites online — and build the platforms behind them.',
     supportingStatement:
-      'I design, manage, and improve reliable digital infrastructure across networks, cloud platforms, Microsoft 365, cybersecurity, and internal business systems.',
+      'I run multi-site ICT and network operations, deploy internal platforms, and turn requirements into reliable systems.',
     valueProposition:
-      'I manage office and multi-site ICT operations, deploy internal platforms, modernise infrastructure, and turn technical requirements into dependable business solutions.',
-    availability:
-      'Open to System Engineering, Infrastructure, Cloud, Network, and DevOps opportunities.',
+      'Stable infrastructure at every location. Practical security. Platforms that ship.',
+    availability: 'Open to infrastructure, cloud, and DevOps roles.',
     profileSummary:
-      "I'm a system engineer with hands-on experience managing office and multi-site ICT and network operations, Microsoft 365 cloud administration, self-hosted platforms, cybersecurity, technical support, and internal application development. I translate operational needs into practical, secure, and maintainable technical solutions.",
+      'System engineer across multi-site ICT, Microsoft 365, self-hosted platforms, and internal app development — ops by day, DevOps when it counts.',
     aboutParagraphs: [
       {
-        text: "I manage infrastructure for Digital Penang's main office and four digital library sites — PDL Phase 1 & 2 (Jln Masjid Negeri), Butterworth Digital Library, and Batu Maung Digital Library. My focus is keeping each location's network and ICT environment stable, secure, and well documented.",
+        text: "I run ICT and network operations for Digital Penang's main office and four digital library sites across Penang. Stable networks, documented assets, and security that doesn't get in the way.",
       },
       {
-        text: 'Day to day, I install and troubleshoot ICT and network equipment, coordinate with vendors when something is under warranty or beyond my scope, and work closely with the person in charge at each site — sharing technical guidance and applying cybersecurity best practices along the way.',
-      },
-      {
-        text: "I also wear a DevOps hat: building websites and internal systems, running CI/CD through GitHub Actions on a local runner, deploying to VPS and Docker hosts, and using Cloudflare for analytics and secure access. When things need watching, I set up Zabbix monitoring to alert us before small issues become outages.",
+        text: 'On the ground I install, troubleshoot, and coordinate with vendors. I also build internal apps, run CI/CD on self-hosted runners, and deploy with Docker — with Zabbix watching so small issues never become outages.',
       },
     ],
     currentlyExploring: [
-      { text: 'Extending Zabbix across library sites' },
+      { text: 'Zabbix across library sites' },
       { text: 'Infrastructure automation' },
       { text: 'Internal platform development' },
-      { text: 'DevOps' },
       { text: 'Infrastructure planning & execution' },
     ],
     locations: [
@@ -79,22 +73,19 @@ export const seedData = {
     location: 'Penang, Malaysia',
     seoTitle: 'Iyaz Ibrahim | System Engineer',
     seoDescription:
-      'Infrastructure-focused System Engineer with DevOps capability across networking, cloud, Microsoft 365 administration, Zabbix monitoring, and internal platforms.',
+      'System Engineer in Penang — multi-site ICT, networking, Microsoft 365, Zabbix, and internal platforms.',
     principles: [
       {
-        title: 'Reliability First',
-        description:
-          'Infrastructure should be stable, documented, monitored, and recoverable.',
+        title: 'Reliability first',
+        description: 'Stable, documented, monitored, recoverable.',
       },
       {
-        title: 'Practical Security',
-        description:
-          'Security controls should reduce risk without unnecessarily blocking business operations.',
+        title: 'Practical security',
+        description: 'Reduce risk without blocking the work.',
       },
       {
-        title: 'Automate Repetitive Work',
-        description:
-          'Use automation to reduce manual effort, avoid configuration mistakes, and improve consistency.',
+        title: 'Automate the repeat work',
+        description: 'Less manual effort, fewer mistakes.',
       },
     ],
     stackCategories: [
@@ -182,25 +173,25 @@ export const seedData = {
     {
       label: 'Locations Supported',
       value: '5',
-      description: 'Main office plus four digital library sites across Penang',
+      description: 'Main office + four library sites',
       sort: 1,
     },
     {
       label: 'Applications Deployed',
       value: '5',
-      description: 'Internal systems and workflow automation platforms',
+      description: 'Internal apps and workflows',
       sort: 2,
     },
     {
       label: 'ICT Assets Documented',
       value: '~100',
-      description: 'Infrastructure and asset records across multiple locations',
+      description: 'Across all managed sites',
       sort: 3,
     },
     {
       label: 'Migration Downtime',
       value: '15 min',
-      description: 'Digital Library internet migration with minimal disruption',
+      description: 'Library internet cutover',
       sort: 4,
     },
   ],
@@ -284,33 +275,14 @@ export const seedData = {
       endDate: 'Present',
       sort: 1,
       bullets: [
-        {
-          text: 'Manage ICT and network infrastructure for Digital Penang’s main office and four digital library sites (PDL Phase 1 & 2 at Jln Masjid Negeri, Butterworth Digital Library, Batu Maung Digital Library) as appointed ICT service provider.',
-        },
-        {
-          text: 'Install, troubleshoot, repair, and document network and ICT systems per location — including switching, VLANs, wireless, internet connectivity, CCTV, and asset records (~100 devices).',
-        },
-        {
-          text: 'Collaborate with site person-in-charge on technical decisions, vendor coordination, and cybersecurity best practices across all managed locations.',
-        },
-        {
-          text: 'Deploy and maintain Zabbix monitoring for websites and office infrastructure, with alerting to catch issues early; extending coverage to library sites is in progress.',
-        },
-        {
-          text: 'Build and deploy internal applications and websites using React, Flask, Node.js, and Docker — with CI/CD via GitHub Actions runners, VPS hosting, and Cloudflare for analytics and secure access.',
-        },
-        {
-          text: 'Administer Microsoft 365, Microsoft Entra ID, and Azure — user onboarding, provisioning, licensing, MFA, and account troubleshooting.',
-        },
-        {
-          text: 'Migrated a Digital Library internet service with approximately 15 minutes of operational downtime.',
-        },
-        {
-          text: 'Developed and deployed five internal applications and automation solutions on self-hosted Linux, Docker, Dokploy, and Cloudflare Tunnel infrastructure.',
-        },
-        {
-          text: 'Documented approximately 100 ICT assets and coordinated with vendors, ISPs, contractors, and internal stakeholders.',
-        },
+        { text: 'ICT and network ops across main office and four library sites.' },
+        { text: 'Install, troubleshoot, and document ~100 devices per site.' },
+        { text: 'Coordinate vendors and site leads on security and decisions.' },
+        { text: 'Zabbix monitoring for web and office — libraries next.' },
+        { text: 'Build apps with React, Docker, GitHub Actions, Cloudflare.' },
+        { text: 'Microsoft 365, Entra ID, Azure — onboarding and licensing.' },
+        { text: 'Library internet migration: 15 minutes downtime.' },
+        { text: 'Five internal apps on self-hosted Docker and Dokploy.' },
       ],
       techTags: [
         { tag: 'Fortinet' },
@@ -330,21 +302,11 @@ export const seedData = {
       endDate: 'December 2025',
       sort: 2,
       bullets: [
-        {
-          text: 'Delivered IT support across office, production, and cleanroom environments.',
-        },
-        {
-          text: 'Performed asset lifecycle management and workstation deployment.',
-        },
-        {
-          text: 'Supported infrastructure checks, AP verification, device reimaging, and vendor coordination.',
-        },
-        {
-          text: 'Developed and deployed a Machine Monitoring Platform using Laravel, Python, MQTT, and MySQL.',
-        },
-        {
-          text: 'Deployed the platform on Windows Server using IIS.',
-        },
+        { text: 'IT support across office, production, and cleanrooms.' },
+        { text: 'Asset lifecycle and workstation deployment.' },
+        { text: 'Infrastructure checks, AP verification, vendor coordination.' },
+        { text: 'Built machine monitoring platform — Laravel, Python, MQTT.' },
+        { text: 'Deployed on Windows Server with IIS.' },
       ],
       techTags: [
         { tag: 'Laravel' },
@@ -363,21 +325,10 @@ export const seedData = {
       endDate: 'September 2023',
       sort: 3,
       bullets: [
-        {
-          text: 'Supported network projects for SME and government clients.',
-        },
-        {
-          text: 'Configured and troubleshot Cisco and Extreme Networks equipment.',
-        },
-        {
-          text: 'Conducted site surveys, infrastructure assessments, and wireless planning.',
-        },
-        {
-          text: 'Prepared technical documentation and network diagrams.',
-        },
-        {
-          text: 'Assisted with network troubleshooting and security assessments.',
-        },
+        { text: 'Network projects for SME and government clients.' },
+        { text: 'Cisco and Extreme Networks config and troubleshooting.' },
+        { text: 'Site surveys, wireless planning, technical documentation.' },
+        { text: 'Network troubleshooting and security assessments.' },
       ],
       techTags: [
         { tag: 'Cisco' },
@@ -394,18 +345,10 @@ export const seedData = {
       endDate: 'September 2025',
       sort: 4,
       bullets: [
-        {
-          text: 'Delivered remote and on-site support for individuals and small businesses.',
-        },
-        {
-          text: 'Resolved Windows, Linux, software, malware, hardware, and performance issues.',
-        },
-        {
-          text: 'Performed hardware replacement, operating-system deployment, data migration, and network troubleshooting.',
-        },
-        {
-          text: 'Managed customer issues independently from diagnosis to resolution.',
-        },
+        { text: 'Remote and on-site support for individuals and SMBs.' },
+        { text: 'Windows, Linux, malware, hardware, performance issues.' },
+        { text: 'OS deployment, data migration, network troubleshooting.' },
+        { text: 'End-to-end diagnosis and resolution.' },
       ],
       techTags: [
         { tag: 'Windows' },
@@ -421,10 +364,9 @@ export const seedData = {
       slug: 'eventree',
       projectType: 'build',
       projectUrl: 'https://eventree.online',
-      summary:
-        'A platform that brings Penang events into one place — search, browse by district, calendar view, and map.',
+      summary: 'Penang events in one place — search, map, and calendar.',
       longDescription:
-        "Events are often scattered across social media, posters, and different websites, making it hard to know what's happening and where. Eventree aggregates listings so users can search events, browse by district, view upcoming activities on a calendar, and explore locations on a map.\n\nThe platform is live at eventree.online.",
+        "Events scatter across social media and posters. Eventree pulls them into one searchable map and calendar.\n\nLive at eventree.online.",
       technologies: [
         { name: 'React' },
         { name: 'Node.js' },
@@ -439,10 +381,9 @@ export const seedData = {
       title: 'Internal Application Ecosystem',
       slug: 'internal-application-ecosystem',
       projectType: 'build',
-      summary:
-        'Five internal apps — IT service management, secure video streaming, LHDN e-Stamping bulk processing, and more.',
+      summary: 'Five internal apps — service desk, streaming, e-Stamping, and more.',
       longDescription:
-        'Operational teams needed secure internal platforms for service management, media delivery, and compliance workflows. I developed and deployed five internal applications on self-hosted Docker and Dokploy infrastructure with controlled access and operational monitoring.',
+        'Secure internal platforms for service management, media, and compliance — self-hosted on Docker and Dokploy.',
       technologies: [
         { name: 'React' },
         { name: 'Flask' },
@@ -459,9 +400,9 @@ export const seedData = {
       title: 'Machine Monitoring Platform',
       slug: 'machine-monitoring-platform',
       projectType: 'build',
-      summary: 'Laravel + Python + MQTT dashboard for real-time machine data at Schott Glass.',
+      summary: 'Real-time machine monitoring — Laravel, Python, MQTT at Schott Glass.',
       longDescription:
-        'Built a monitoring platform using Laravel, Python, MQTT, and MySQL to collect, process, store, and display machine data. Deployed on Windows Server with IIS for production teams who needed visibility into manufacturing environments.',
+        'MQTT pipeline to collect, store, and display machine data. Deployed on Windows Server with IIS.',
       technologies: [
         { name: 'Laravel' },
         { name: 'Python' },
@@ -477,10 +418,9 @@ export const seedData = {
       title: 'Kedai MASMED E-commerce Platform',
       slug: 'kedai-masmed-ecommerce',
       projectType: 'build',
-      summary:
-        'Full-stack Laravel e-commerce on cPanel with SSL, 8 domains, and 99.5% uptime.',
+      summary: 'Laravel e-commerce on cPanel — SSL, 8 domains, 99.5% uptime.',
       longDescription:
-        'Developed a full-stack e-commerce solution using Laravel, MySQL, JavaScript, HTML5, and CSS3. Deployed on cPanel shared hosting with SSL, responsive design, database optimisation, and management of 8 additional domains on shared infrastructure.',
+        'Full-stack Laravel store on cPanel with SSL, responsive design, and eight domains on shared hosting.',
       technologies: [
         { name: 'Laravel' },
         { name: 'MySQL' },
@@ -496,12 +436,12 @@ export const seedData = {
       slug: 'multi-site-infrastructure',
       projectType: 'delivery',
       problem:
-        'Digital Penang needed stable and secure ICT and network operations across its main office and four digital library sites — each with its own infrastructure, person-in-charge, and day-to-day support needs.',
+        'Five sites needed stable ICT and network ops — each with its own infrastructure and site lead.',
       solution:
-        'Manage network and ICT infrastructure at each location: installation, switching, VLANs, wireless, internet connectivity, CCTV, troubleshooting, repairs, asset documentation, vendor coordination, and cybersecurity best practices in collaboration with site leads.',
+        'Per-site network and ICT: switching, VLANs, wireless, CCTV, troubleshooting, vendor coordination, and security with site leads.',
       role: 'System Engineer / ICT service provider',
       outcome:
-        'Reliable multi-site ICT and network operations with documented infrastructure across all five locations. Zabbix monitoring deployed for websites and office infrastructure, with library site coverage being extended.',
+        'Reliable ops across five locations with documented assets. Zabbix live for web and office.',
       technologies: [
         { name: 'Fortinet' },
         { name: 'Cisco' },
@@ -512,7 +452,7 @@ export const seedData = {
         { name: 'Microsoft 365' },
       ],
       architectureNotes:
-        'Main office plus PDL Phase 1 (135) and Phase 2 (123) on Jln Masjid Negeri, Butterworth Digital Library, and Batu Maung Digital Library — each supported with local ICT and network operations, monitoring, and vendor coordination.',
+        'Main office plus PDL Phase 1 & 2, Butterworth, and Batu Maung — each with local ICT ops and monitoring.',
       diagramType: 'multisite',
       featured: true,
       sort: 1,
@@ -521,20 +461,17 @@ export const seedData = {
       title: 'Digital Library Internet Migration',
       slug: 'digital-library-migration',
       projectType: 'delivery',
-      problem:
-        'Upgrade or migrate the internet service while minimising operational disruption to a public-facing digital library site.',
-      solution:
-        'Planned migration windows, configured new connectivity, tested failover paths, and executed a controlled cutover with post-migration verification.',
+      problem: 'Upgrade library internet with minimal public disruption.',
+      solution: 'Planned windows, tested failover, controlled cutover with verification.',
       role: 'System Engineer',
-      outcome:
-        'Migration completed with approximately 15 minutes of downtime, followed by connectivity and performance verification.',
+      outcome: '~15 minutes downtime. Connectivity verified post-migration.',
       technologies: [
         { name: 'Routing' },
         { name: 'Firewall' },
         { name: 'ISP coordination' },
         { name: 'Network testing' },
       ],
-      architectureNotes: 'Controlled service cutover with pre-migration testing and post-cutover validation.',
+      architectureNotes: 'Controlled cutover with pre-migration testing.',
       diagramType: 'none',
       featured: true,
       sort: 2,
@@ -543,21 +480,17 @@ export const seedData = {
       title: 'Zabbix Monitoring Deployment',
       slug: 'zabbix-monitoring-deployment',
       projectType: 'delivery',
-      problem:
-        'Websites and office infrastructure needed proactive monitoring — alerts before issues escalate into downtime for staff and library visitors.',
-      solution:
-        'Deployed Zabbix to monitor website availability and office infrastructure health, with alerting configured to catch problems early. Library site monitoring is being rolled out next.',
+      problem: 'No proactive monitoring — outages hit staff and visitors first.',
+      solution: 'Zabbix for website and office health with early alerting. Libraries rolling out next.',
       role: 'System Engineer',
-      outcome:
-        'Monitoring and alerting in place for websites and office infrastructure. Library sites are next in the rollout plan.',
+      outcome: 'Monitoring live for web and office. Library sites in progress.',
       technologies: [
         { name: 'Zabbix' },
         { name: 'SNMP' },
         { name: 'Website monitoring' },
         { name: 'Linux' },
       ],
-      architectureNotes:
-        'Zabbix watches websites and office infrastructure today. Coverage is expanding to the four digital library sites.',
+      architectureNotes: 'Zabbix on web and office today. Library coverage expanding.',
       diagramType: 'zabbix',
       featured: true,
       sort: 3,
@@ -566,13 +499,10 @@ export const seedData = {
       title: 'Self-Hosted DevOps Platform',
       slug: 'self-hosted-devops-platform',
       projectType: 'delivery',
-      problem:
-        'Internal applications and websites needed a dependable deployment pipeline — from code to production — without relying entirely on external hosting.',
-      solution:
-        'Built a self-hosted DevOps workflow using GitHub Actions runners on local infrastructure, Docker builds, VPS and Dokploy deployments, Cloudflare Tunnel for secure access, and Cloudflare analytics for traffic insight.',
+      problem: 'Apps needed a reliable path from code to production without external-only hosting.',
+      solution: 'GitHub Actions runners, Docker builds, Dokploy deploys, Cloudflare Tunnel and analytics.',
       role: 'System Engineer / DevOps',
-      outcome:
-        'Consistent CI/CD from GitHub to staging and production, with Docker-based deployments, secure remote access, and operational visibility.',
+      outcome: 'Consistent CI/CD to staging and production with secure access.',
       technologies: [
         { name: 'GitHub Actions' },
         { name: 'Docker' },
@@ -581,8 +511,7 @@ export const seedData = {
         { name: 'Cloudflare Analytics' },
         { name: 'VPS' },
       ],
-      architectureNotes:
-        'Source in GitHub → self-hosted runner → Docker build → staging → production via Dokploy, with tunnelled access.',
+      architectureNotes: 'GitHub → runner → Docker → Dokploy staging → production.',
       diagramType: 'devops',
       featured: true,
       sort: 4,
@@ -591,13 +520,10 @@ export const seedData = {
       title: 'Zakat Pulau Pinang Network Infrastructure Upgrade',
       slug: 'zakat-network-upgrade',
       projectType: 'delivery',
-      problem:
-        'Zakat Pulau Pinang needed modernised network infrastructure across four offices with improved security and structured cabling.',
-      solution:
-        'Led end-to-end project management including vendor coordination, hardware upgrades, structured cabling, security protocols, and zero-downtime migration planning across all sites.',
+      problem: 'Four offices needed modernised network, security, and structured cabling.',
+      solution: 'End-to-end PM: vendor coordination, hardware, cabling, zero-downtime migration.',
       role: 'Project Manager',
-      outcome:
-        'Network infrastructure modernised across 4 offices within a RM 150,000+ budget, delivered 2 weeks ahead of schedule with enhanced security and cabling standards.',
+      outcome: 'Four offices upgraded on RM 150k+ budget — two weeks ahead of schedule.',
       technologies: [
         { name: 'Project management' },
         { name: 'Structured cabling' },
@@ -605,8 +531,7 @@ export const seedData = {
         { name: 'Security protocols' },
         { name: 'Vendor coordination' },
       ],
-      architectureNotes:
-        'Coordinated cross-functional teams including vendors, IT personnel, and stakeholders for a multi-office network modernisation.',
+      architectureNotes: 'Multi-office modernisation with vendors, IT, and stakeholders.',
       diagramType: 'none',
       featured: true,
       sort: 5,

@@ -20,7 +20,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: 'Iyaz Ibrahim | System Engineer',
   description:
-    'System Engineer specialising in infrastructure, networking, cloud, Microsoft 365, DevOps, and secure internal platforms.',
+    'System Engineer in Penang — multi-site ICT, networking, Microsoft 365, Zabbix, and internal platforms.',
 }
 
 const themeScript = `

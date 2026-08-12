@@ -25,9 +25,6 @@ export function CapabilityMap({ capabilities }: { capabilities: Capability[] }) 
             title="What I work with"
             id="capabilities-heading"
           />
-          <p className="lead apple-narrow -mt-6 mb-12 text-center">
-            The areas I&apos;m hands-on in
-          </p>
         </Reveal>
 
         <div className="grid gap-4 md:grid-cols-2">

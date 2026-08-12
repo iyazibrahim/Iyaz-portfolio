@@ -70,6 +70,8 @@ Seed content lives in `src/content/seed/data.ts`. After editing, run:
 npm run sync-content
 ```
 
+This pushes updated copy into Payload (site settings, metrics, experience, projects, etc.). Component header changes deploy with the next build automatically.
+
 ## Writing blog posts
 
 1. Go to `/admin` → **Posts** → Create new

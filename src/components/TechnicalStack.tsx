@@ -13,7 +13,6 @@ export function TechnicalStack({ categories }: { categories: StackCategory[] }) 
       <div className="section-shell">
         <Reveal>
           <SectionHeader eyebrow="Toolkit" title="My toolkit" id="stack-heading" />
-          <p className="lead apple-narrow -mt-6 mb-12 text-center">Tools I reach for</p>
         </Reveal>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -167,7 +167,7 @@ export function CertificationCarousel({ certifications }: { certifications: Cert
         <Reveal>
           <SectionHeader
             eyebrow="Certifications"
-            title="Certifications I've earned"
+            title="Certifications"
             id="certifications-heading"
           />
         </Reveal>

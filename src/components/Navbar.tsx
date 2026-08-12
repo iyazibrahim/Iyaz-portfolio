@@ -9,11 +9,11 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 const links = [
   { href: '/#about', label: 'About' },
   { href: '/#experience', label: 'Experience' },
+  { href: '/#delivered', label: 'Infrastructure' },
   { href: '/#built', label: 'Built' },
-  { href: '/#delivered', label: 'Delivered' },
-  { href: '/blog', label: 'Blog' },
   { href: '/#skills', label: 'Skills' },
   { href: '/#certifications', label: 'Certs' },
+  { href: '/blog', label: 'Blog' },
   { href: '/#contact', label: 'Contact' },
 ]
 

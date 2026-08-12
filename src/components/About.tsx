@@ -14,8 +14,8 @@ export function About({ paragraphs, exploring, locations }: AboutProps) {
       <div className="section-shell">
         <Reveal>
           <SectionHeader
-            eyebrow="A bit about me"
-            title="How I think about the work"
+            eyebrow="About"
+            title="What I do"
             id="about-heading"
           />
         </Reveal>
