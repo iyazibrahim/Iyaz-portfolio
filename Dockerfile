@@ -29,7 +29,17 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/media ./media
 
-RUN chown -R nextjs:nodejs /app/media
+# Dokploy terminal runs `npm run sync-content` inside this container.
+# Next.js standalone only ships a minimal runtime, so we also copy:
+# - full node_modules (includes `tsx`)
+# - source + Payload config the sync/seed scripts import
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/tsconfig.json ./tsconfig.json
+COPY --from=builder /app/payload.config.ts ./payload.config.ts
+COPY --from=builder /app/src ./src
+
+RUN chown -R nextjs:nodejs /app/node_modules /app/media /app/src
 
 USER nextjs
 EXPOSE 3000

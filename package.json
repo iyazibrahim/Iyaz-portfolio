@@ -10,13 +10,14 @@
     "lint": "next lint",
     "payload": "payload",
     "generate:types": "payload generate:types",
-    "seed": "tsx src/scripts/seed.ts",
-    "sync-content": "tsx src/scripts/sync-content.ts"
+    "seed": "node --import tsx src/scripts/seed.ts",
+    "sync-content": "node --import tsx src/scripts/sync-content.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.86.0",
     "@payloadcms/next": "^3.86.0",
     "@payloadcms/richtext-lexical": "^3.86.0",
+    "dotenv": "^17.2.1",
     "framer-motion": "^12.23.12",
     "graphql": "^16.11.0",
     "leaflet": "^1.9.4",
@@ -37,7 +38,6 @@
     "@types/nodemailer": "^7.0.1",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
-    "dotenv": "^17.2.1",
     "eslint": "^9.34.0",
     "eslint-config-next": "15.4.11",
     "tailwindcss": "^4.1.12",
