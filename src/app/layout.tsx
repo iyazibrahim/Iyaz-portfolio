@@ -17,7 +17,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: 'swap',
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iyazbrhm.cloud'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'Iyaz Ibrahim | System Engineer',
   description:
     'System Engineer in Penang — multi-site ICT, networking, Microsoft 365, Zabbix, and internal platforms.',

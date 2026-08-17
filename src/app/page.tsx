@@ -19,28 +19,50 @@ import { TechnicalStack } from '@/components/TechnicalStack'
 import type { MapLocation } from '@/components/PenangLocationMap'
 import { getSiteData } from '@/lib/payload'
 import { getLatestPosts } from '@/lib/blog'
-import { isBuildProject, isDeliveryProject, type ProjectListItem } from '@/lib/projects'
+import { getCoverImageUrl, isBuildProject, isDeliveryProject, type ProjectListItem } from '@/lib/projects'
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iyazbrhm.cloud'
 
 export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const { siteSettings } = await getSiteData()
+    const ogImageUrl = getCoverImageUrl(siteSettings.ogImage)
+
     return {
+      metadataBase: new URL(siteUrl),
       title: siteSettings.seoTitle,
       description: siteSettings.seoDescription,
+      alternates: {
+        canonical: siteUrl,
+      },
       openGraph: {
         title: siteSettings.seoTitle,
         description: siteSettings.seoDescription,
         type: 'website',
         locale: 'en_MY',
+        url: siteUrl,
+        siteName: siteSettings.name || 'Iyaz Ibrahim',
+        images: ogImageUrl
+          ? [{ url: ogImageUrl }]
+          : [{ url: '/icon.png', width: 1024, height: 1024, alt: siteSettings.name || 'Iyaz Ibrahim' }],
       },
     }
   } catch {
     return {
+      metadataBase: new URL(siteUrl),
       title: 'Iyaz Ibrahim | System Engineer',
       description:
         'Infrastructure-focused System Engineer with DevOps capability across networking, cloud, Microsoft 365, cybersecurity, monitoring, and internal platforms.',
+      openGraph: {
+        title: 'Iyaz Ibrahim | System Engineer',
+        description:
+          'Infrastructure-focused System Engineer with DevOps capability across networking, cloud, Microsoft 365, cybersecurity, monitoring, and internal platforms.',
+        type: 'website',
+        url: siteUrl,
+        images: [{ url: '/icon.png', width: 1024, height: 1024, alt: 'Iyaz Ibrahim' }],
+      },
     }
   }
 }

@@ -1,4 +1,5 @@
-import { PenangLocationMap, type MapLocation } from '@/components/PenangLocationMap'
+import type { MapLocation } from '@/components/PenangLocationMap'
+import { PenangLocationMapLoader } from '@/components/PenangLocationMapLoader'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeader } from '@/components/SectionHeader'
 
@@ -48,7 +49,7 @@ export function About({ paragraphs, exploring, locations }: AboutProps) {
         {locations.length > 0 ? (
           <Reveal delay={0.2}>
             <div className="mx-auto mt-16 max-w-3xl rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 md:p-8">
-              <PenangLocationMap locations={locations} />
+              <PenangLocationMapLoader locations={locations} />
             </div>
           </Reveal>
         ) : null}
