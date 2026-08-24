@@ -26,20 +26,27 @@ export function Navbar({ resumeUrl }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    let lastScrolled = window.scrollY > 24
+
+    const onScroll = () => {
+      const nextScrolled = window.scrollY > 24
+      if (nextScrolled !== lastScrolled) {
+        lastScrolled = nextScrolled
+        setScrolled(nextScrolled)
+      }
+    }
+
     onScroll()
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const scrolledClasses = scrolled
+    ? 'border-b border-[var(--color-border)] bg-[var(--color-bg)] md:bg-[color-mix(in_srgb,var(--color-bg)_85%,transparent)] md:backdrop-blur-xl'
+    : 'bg-transparent'
+
   return (
-    <header
-      className={`no-print fixed inset-x-0 top-0 z-50 transition-all ${
-        scrolled
-          ? 'border-b border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-bg)_85%,transparent)] backdrop-blur-xl'
-          : 'bg-transparent'
-      }`}
-    >
+    <header className={`no-print fixed inset-x-0 top-0 z-50 transition-all ${scrolledClasses}`}>
       <div className="section-shell flex items-center justify-between py-4">
         <Link
           href="/"

@@ -5,6 +5,7 @@ import L from 'leaflet'
 import { useEffect, useRef, useState } from 'react'
 
 import { useTheme } from '@/components/ThemeProvider'
+import { useLightMotion } from '@/lib/useMediaQuery'
 
 import 'leaflet/dist/leaflet.css'
 
@@ -47,6 +48,7 @@ export function PenangLocationMap({ locations }: PenangLocationMapProps) {
   const markersRef = useRef<L.Marker[]>([])
   const [activeIndex, setActiveIndex] = useState(0)
   const reduceMotion = useReducedMotion()
+  const lightMotion = useLightMotion()
   const { theme } = useTheme()
 
   useEffect(() => {
@@ -56,6 +58,8 @@ export function PenangLocationMap({ locations }: PenangLocationMapProps) {
       scrollWheelZoom: false,
       attributionControl: true,
       zoomControl: true,
+      dragging: !lightMotion,
+      touchZoom: !lightMotion,
     })
 
     tileRef.current = L.tileLayer(TILE_LAYERS[theme] || TILE_LAYERS.light, {
@@ -85,7 +89,7 @@ export function PenangLocationMap({ locations }: PenangLocationMapProps) {
       tileRef.current = null
       markersRef.current = []
     }
-    // theme is read on init only; theme changes handled in a separate effect
+    // lightMotion is read on init only; resize changes are rare on phones
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locations])
 
@@ -105,19 +109,29 @@ export function PenangLocationMap({ locations }: PenangLocationMapProps) {
   return (
     <div>
       <p className="eyebrow mb-4 text-center">Locations I support</p>
-      <motion.div
-        className="penang-map-frame overflow-hidden rounded-2xl border border-[var(--color-border)]"
-        initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.6 }}
-      >
-        <div
-          ref={mapRef}
-          className="h-[320px] w-full md:h-[400px]"
-          aria-label="Map of managed locations in Penang"
-        />
-      </motion.div>
+      {lightMotion ? (
+        <div className="penang-map-frame overflow-hidden rounded-2xl border border-[var(--color-border)]">
+          <div
+            ref={mapRef}
+            className="h-[320px] w-full md:h-[400px]"
+            aria-label="Map of managed locations in Penang"
+          />
+        </div>
+      ) : (
+        <motion.div
+          className="penang-map-frame overflow-hidden rounded-2xl border border-[var(--color-border)]"
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <div
+            ref={mapRef}
+            className="h-[320px] w-full md:h-[400px]"
+            aria-label="Map of managed locations in Penang"
+          />
+        </motion.div>
+      )}
 
       <div className="mt-5 flex flex-wrap justify-center gap-2">
         {locations.map((location, index) => (

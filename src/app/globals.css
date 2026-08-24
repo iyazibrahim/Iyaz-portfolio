@@ -49,7 +49,13 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -141,8 +147,10 @@ h4 {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.surface-card:hover {
-  transform: scale(1.01);
+@media (hover: hover) {
+  .surface-card:hover {
+    transform: scale(1.01);
+  }
 }
 
 .bento-grid {
@@ -159,8 +167,10 @@ h4 {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.bento-card:hover {
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .bento-card:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .bento-card-accent,
@@ -233,9 +243,11 @@ h4 {
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.btn-primary:hover {
-  opacity: 0.85;
-  transform: scale(1.02);
+@media (hover: hover) {
+  .btn-primary:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
 }
 
 .btn-primary:disabled {
@@ -260,10 +272,12 @@ h4 {
   transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
-.btn-secondary:hover {
-  border-color: var(--color-fg);
-  background: var(--color-surface);
-  transform: scale(1.02);
+@media (hover: hover) {
+  .btn-secondary:hover {
+    border-color: var(--color-fg);
+    background: var(--color-surface);
+    transform: scale(1.02);
+  }
 }
 
 .btn-icon {
@@ -307,7 +321,6 @@ h4 {
   gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   padding-bottom: 0.5rem;
@@ -326,10 +339,6 @@ h4 {
   z-index: 0;
   font-family: var(--font-body);
   background: var(--color-surface);
-}
-
-.penang-map-frame {
-  filter: saturate(0.9);
 }
 
 /* Custom amber pins */

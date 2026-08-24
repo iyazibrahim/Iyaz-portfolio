@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Reveal } from '@/components/Reveal'
 import { SectionHeader } from '@/components/SectionHeader'
+import { useFinePointer } from '@/lib/useMediaQuery'
 
 // Legacy slug fallback for any pre-migration values that were stored as slugs.
 const legacyCategoryLabels: Record<string, string> = {
@@ -54,6 +55,7 @@ export function CertificationCarousel({ certifications }: { certifications: Cert
   const trackRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const [reducedMotion, setReducedMotion] = useState(false)
+  const finePointer = useFinePointer()
   const isDragging = useRef(false)
   const dragStartX = useRef(0)
   const scrollStart = useRef(0)
@@ -138,6 +140,7 @@ export function CertificationCarousel({ certifications }: { certifications: Cert
   }, [goNext, goPrev])
 
   function onPointerDown(event: React.PointerEvent<HTMLDivElement>) {
+    if (!finePointer) return
     const track = trackRef.current
     if (!track) return
     isDragging.current = true
@@ -197,13 +200,17 @@ export function CertificationCarousel({ certifications }: { certifications: Cert
 
             <div
               ref={trackRef}
-              className="carousel-track cursor-grab active:cursor-grabbing"
+              className={`carousel-track ${finePointer ? 'cursor-grab active:cursor-grabbing' : ''}`}
               role="list"
               aria-label="Certifications carousel"
-              onPointerDown={onPointerDown}
-              onPointerMove={onPointerMove}
-              onPointerUp={onPointerUp}
-              onPointerCancel={onPointerUp}
+              {...(finePointer
+                ? {
+                    onPointerDown,
+                    onPointerMove,
+                    onPointerUp,
+                    onPointerCancel: onPointerUp,
+                  }
+                : {})}
             >
               {certifications.map((cert, index) => {
                 const badge = getMedia(cert.badgeImage)

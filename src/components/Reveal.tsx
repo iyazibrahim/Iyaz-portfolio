@@ -3,6 +3,8 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
+import { useLightMotion } from '@/lib/useMediaQuery'
+
 type RevealProps = {
   children: ReactNode
   className?: string
@@ -11,8 +13,9 @@ type RevealProps = {
 
 export function Reveal({ children, className = '', delay = 0 }: RevealProps) {
   const reduceMotion = useReducedMotion()
+  const lightMotion = useLightMotion()
 
-  if (reduceMotion) {
+  if (reduceMotion || lightMotion) {
     return <div className={className}>{children}</div>
   }
 
