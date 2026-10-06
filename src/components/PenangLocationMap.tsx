@@ -22,9 +22,16 @@ type PenangLocationMapProps = {
   locations: MapLocation[]
 }
 
+const CARTO_KEY =
+  process.env.NEXT_PUBLIC_CARTO_API_KEY || 'cb1_4b9i_1_666873e079f6ee8e8d1f9d94'
+
+function cartoRaster(style: string) {
+  return `https://basemaps.cartocdn.com/rastertiles/${style}/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`
+}
+
 const TILE_LAYERS = {
-  light: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-  dark: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  light: cartoRaster('voyager'),
+  dark: cartoRaster('dark_all'),
 }
 
 const TILE_ATTRIBUTION =
