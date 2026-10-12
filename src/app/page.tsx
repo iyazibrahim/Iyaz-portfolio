@@ -17,6 +17,7 @@ import { PersonJsonLd } from '@/components/PersonJsonLd'
 import { Philosophy } from '@/components/Philosophy'
 import { TechnicalStack } from '@/components/TechnicalStack'
 import type { MapLocation } from '@/components/PenangLocationMap'
+import { withPinnedAddresses } from '@/lib/mapLocations'
 import { getSiteData } from '@/lib/payload'
 import { getLatestPosts } from '@/lib/blog'
 import { getCoverImageUrl, isBuildProject, isDeliveryProject, type ProjectListItem } from '@/lib/projects'
@@ -90,8 +91,10 @@ export default async function HomePage() {
   const currentlyExploring =
     (settings.currentlyExploring as { text: string }[] | undefined) || []
 
-  const locations = ((settings.locations as MapLocation[] | undefined) || []).filter(
-    (loc) => loc.name && loc.lat && loc.lng,
+  const locations = withPinnedAddresses(
+    ((settings.locations as MapLocation[] | undefined) || []).filter(
+      (loc) => loc.name && loc.lat && loc.lng,
+    ),
   )
 
   const tagline =

@@ -1,9 +1,9 @@
 const locations = [
-  { name: 'Digital Penang Main Office', type: 'Office' },
+  { name: 'Digital Penang Office', type: 'Wisma Yeap Chor Ee, Pengkalan Weld, George Town' },
   { name: 'PDL Phase 1', type: '135, Jln Masjid Negeri, George Town' },
   { name: 'PDL Phase 2', type: '123, Jln Masjid Negeri, George Town' },
-  { name: 'Butterworth Digital Library', type: 'Library site' },
-  { name: 'Batu Maung Digital Library', type: 'Library site' },
+  { name: 'Butterworth Digital Library', type: 'Lebuh Benggali 1, Kampung Benggali, Butterworth' },
+  { name: 'Batu Maung Digital Library', type: 'Southbay Plaza, Cangkat Batu Maung, Bayan Lepas' },
 ]
 
 export function ManagedLocations() {
