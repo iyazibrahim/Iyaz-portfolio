@@ -6,6 +6,7 @@ import {
   formatPostDate,
   getCoverImageUrl,
 } from '@/lib/blog'
+import { formatReadingTime } from '@/lib/reading-time'
 
 type BlogCardProps = {
   post: BlogPostListItem
@@ -14,6 +15,7 @@ type BlogCardProps = {
 
 export function BlogCard({ post, featured = false }: BlogCardProps) {
   const imageUrl = getCoverImageUrl(post.coverImage)
+  const readingTime = formatReadingTime(post.readingTimeMinutes)
 
   return (
     <Link href={`/blog/${post.slug}`} className="group block h-full">
@@ -32,7 +34,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
         <div className="flex flex-1 flex-col p-5 md:p-6">
           <div className="mb-3 flex flex-wrap items-center gap-2 text-xs text-muted">
             {post.publishedAt ? <time dateTime={post.publishedAt}>{formatPostDate(post.publishedAt)}</time> : null}
-            {post.readingTimeMinutes ? <span>· {post.readingTimeMinutes} min read</span> : null}
+            {readingTime ? <span>· {readingTime}</span> : null}
           </div>
           <h3
             className={`font-semibold tracking-tight transition-colors group-hover:text-[var(--color-fg)] ${

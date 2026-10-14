@@ -1,4 +1,5 @@
 import { formatPostDate } from '@/lib/blog'
+import { formatReadingTime } from '@/lib/reading-time'
 
 type BlogPostHeaderProps = {
   title: string
@@ -15,11 +16,13 @@ export function BlogPostHeader({
   readingTimeMinutes,
   tags,
 }: BlogPostHeaderProps) {
+  const readingTime = formatReadingTime(readingTimeMinutes)
+
   return (
     <header className="mb-8 md:mb-10">
       <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-muted">
         {publishedAt ? <time dateTime={publishedAt}>{formatPostDate(publishedAt)}</time> : null}
-        {readingTimeMinutes ? <span>· {readingTimeMinutes} min read</span> : null}
+        {readingTime ? <span>· {readingTime}</span> : null}
         <span>· Iyaz Ibrahim</span>
       </div>
       <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">{title}</h1>

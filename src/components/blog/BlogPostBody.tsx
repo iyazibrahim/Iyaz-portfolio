@@ -5,9 +5,5 @@ type BlogPostBodyProps = {
 }
 
 export function BlogPostBody({ content }: BlogPostBodyProps) {
-  return (
-    <div className="blog-prose">
-      <RichText data={content as never} />
-    </div>
-  )
+  return <RichText className="blog-prose" data={content as never} />
 }

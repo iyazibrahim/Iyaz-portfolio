@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { estimateReadingTime } from '../lib/reading-time'
+
 function slugify(value: string) {
   return value
     .toLowerCase()
@@ -7,24 +9,6 @@ function slugify(value: string) {
     .replace(/[^\w\s-]/g, '')
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g, '')
-}
-
-function extractTextFromLexical(node: unknown): string {
-  if (!node || typeof node !== 'object') return ''
-  const record = node as Record<string, unknown>
-
-  if (typeof record.text === 'string') return record.text
-
-  const children = record.children
-  if (!Array.isArray(children)) return ''
-
-  return children.map((child) => extractTextFromLexical(child)).join(' ')
-}
-
-function estimateReadingTime(content: unknown): number {
-  const text = extractTextFromLexical(content)
-  const words = text.trim().split(/\s+/).filter(Boolean).length
-  return Math.max(1, Math.ceil(words / 200))
 }
 
 export const Posts: CollectionConfig = {
@@ -64,6 +48,16 @@ export const Posts: CollectionConfig = {
         }
 
         return data
+      },
+    ],
+    afterRead: [
+      ({ doc }) => {
+        if (!doc?.content) return doc
+
+        return {
+          ...doc,
+          readingTimeMinutes: estimateReadingTime(doc.content),
+        }
       },
     ],
   },
