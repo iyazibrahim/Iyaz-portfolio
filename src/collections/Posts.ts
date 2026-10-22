@@ -7,20 +7,17 @@ import {
 } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 
+import { defaultLanguages } from '../../node_modules/@payloadcms/richtext-lexical/dist/features/blocks/premade/CodeBlock/Component/defaultLanguages.js'
 import { estimateReadingTime } from '../lib/reading-time'
 
 function blogCodeBlock() {
-  const block = CodeBlock({
+  return CodeBlock({
     defaultLanguage: 'plaintext',
+    languages: {
+      mermaid: 'Mermaid',
+      ...defaultLanguages,
+    },
   })
-
-  for (const field of block.fields) {
-    if (field.type === 'select' && field.name === 'language' && Array.isArray(field.options)) {
-      field.options = [{ label: 'Mermaid', value: 'mermaid' }, ...field.options]
-    }
-  }
-
-  return block
 }
 
 function slugify(value: string) {
