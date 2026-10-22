@@ -532,6 +532,77 @@ h4 {
   padding: 0;
 }
 
+.blog-prose .lexical-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+}
+
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.blog-prose th,
+.blog-prose td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-prose tr:last-child td,
+.blog-prose tr:last-child th {
+  border-bottom: none;
+}
+
+.blog-prose th,
+.blog-prose tr[data-header='true'] td {
+  background: var(--color-surface);
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.blog-prose td p + p,
+.blog-prose th p + p {
+  margin-top: 0.75rem;
+}
+
+.blog-prose .blog-code {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--color-surface) 88%, var(--color-fg));
+}
+
+.blog-prose .blog-code figcaption {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.blog-prose .blog-code pre {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 1rem 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.blog-prose .blog-code code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: pre;
+}
+
 .blog-prose img {
   max-width: 100%;
   border-radius: 1rem;

@@ -9,6 +9,10 @@ function collectLexicalText(node: unknown, parts: string[]) {
     parts.push(record.text)
   }
 
+  if (typeof record.code === 'string' && record.code.trim()) {
+    parts.push(record.code)
+  }
+
   // Payload stores the editor state as { root: { children: [...] } }.
   if (record.root && typeof record.root === 'object') {
     collectLexicalText(record.root, parts)

@@ -1,3 +1,10 @@
+import {
+  BlocksFeature,
+  CodeBlock,
+  EXPERIMENTAL_TableFeature,
+  FixedToolbarFeature,
+  lexicalEditor,
+} from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 
 import { estimateReadingTime } from '../lib/reading-time'
@@ -85,6 +92,20 @@ export const Posts: CollectionConfig = {
       name: 'content',
       type: 'richText',
       required: true,
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          FixedToolbarFeature(),
+          EXPERIMENTAL_TableFeature(),
+          BlocksFeature({
+            blocks: [
+              CodeBlock({
+                defaultLanguage: 'plaintext',
+              }),
+            ],
+          }),
+        ],
+      }),
     },
     {
       name: 'coverImage',
