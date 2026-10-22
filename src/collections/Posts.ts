@@ -9,6 +9,20 @@ import type { CollectionConfig } from 'payload'
 
 import { estimateReadingTime } from '../lib/reading-time'
 
+function blogCodeBlock() {
+  const block = CodeBlock({
+    defaultLanguage: 'plaintext',
+  })
+
+  for (const field of block.fields) {
+    if (field.type === 'select' && field.name === 'language' && Array.isArray(field.options)) {
+      field.options = [{ label: 'Mermaid', value: 'mermaid' }, ...field.options]
+    }
+  }
+
+  return block
+}
+
 function slugify(value: string) {
   return value
     .toLowerCase()
@@ -98,11 +112,7 @@ export const Posts: CollectionConfig = {
           FixedToolbarFeature(),
           EXPERIMENTAL_TableFeature(),
           BlocksFeature({
-            blocks: [
-              CodeBlock({
-                defaultLanguage: 'plaintext',
-              }),
-            ],
+            blocks: [blogCodeBlock()],
           }),
         ],
       }),

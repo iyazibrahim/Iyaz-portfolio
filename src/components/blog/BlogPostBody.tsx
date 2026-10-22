@@ -1,5 +1,7 @@
 import { RichText, type JSXConvertersFunction } from '@payloadcms/richtext-lexical/react'
 
+import { MermaidDiagram } from '@/components/blog/MermaidDiagram'
+
 type BlogPostBodyProps = {
   content: unknown
 }
@@ -10,6 +12,7 @@ const languageLabels: Record<string, string> = {
   html: 'HTML',
   javascript: 'JavaScript',
   json: 'JSON',
+  mermaid: 'Mermaid',
   plaintext: 'Text',
   powershell: 'PowerShell',
   python: 'Python',
@@ -32,6 +35,10 @@ const blogConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
       const fields = node.fields ?? {}
       const code = fields.code ?? ''
       const language = fields.language || ''
+      if (language === 'mermaid') {
+        return <MermaidDiagram chart={code} />
+      }
+
       const label =
         language && language !== 'plaintext' ? languageLabels[language] || language : null
 

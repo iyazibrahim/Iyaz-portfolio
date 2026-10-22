@@ -603,6 +603,30 @@ h4 {
   white-space: pre;
 }
 
+.blog-prose .blog-mermaid {
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  padding: 1.25rem 1rem;
+}
+
+.blog-prose .blog-mermaid svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.blog-prose .blog-mermaid-error {
+  margin: 0;
+  padding: 0 1.1rem 1rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
 .blog-prose img {
   max-width: 100%;
   border-radius: 1rem;
